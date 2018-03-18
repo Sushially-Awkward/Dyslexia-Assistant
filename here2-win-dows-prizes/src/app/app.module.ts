@@ -12,12 +12,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import {AuthService} from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { NotfoundComponent } from './notfound/notfound.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
     LoginComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
