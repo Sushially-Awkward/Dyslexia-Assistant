@@ -27,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "materialize-css": "^0.100.2",
+    "microsoft-speech-browser-sdk": "0.0.12",
     "promise-polyfill": "7.1.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
