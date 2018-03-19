@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {AuthService} from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { TestComponent } from './test/test.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     DashboardComponent,
     LoginComponent,
     NotfoundComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
