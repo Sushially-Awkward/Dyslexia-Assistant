@@ -35,6 +35,7 @@ export class AuthService {
       .catch(err => {
         console.log('Something went wrong:',err.message);
       });
+     
   }
 
   logout() {

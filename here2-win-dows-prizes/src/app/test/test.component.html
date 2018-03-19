@@ -1,3 +1,5 @@
-<p>
-  test works!
-</p>
+<ul>
+  <li *ngFor="let item of items | async">
+    {{ item.test }}
+  </li>
+</ul>

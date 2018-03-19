@@ -1,43 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject, AngularFireList } from "angularfire2/database"; 
+import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
-
+import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
 
-export class Item {
-  body: string;
-}
 
 export class TestComponent implements OnInit {
 
-  items: AngularFireList<Item[]> = null;
-  //items;
-  userId: string;
+  items;
+  user;
+  constructor(
+    public db: AngularFirestore,
+    public firebaseAuth: AngularFireAuth
+  ) {
+    this.items = db.collection('items').valueChanges();
 
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
-    this.afAuth.authState.subscribe(user => {
-      if(user) this.userId = user.uid
-    })
+
+    firebaseAuth.authState.subscribe(
+      (auth) => {
+        if (auth != null) {
+          this.user=auth.uid;
+          console.log(auth.uid);
+        }
+      }); 
   }
-
-
-  // Return an observable list with optional query
-  // You will usually call this from OnInit in a component
-  getItemsList(): AngularFireList<Item[]> {
-    if (!this.userId) return;
-    this.items = this.db.list(`items/${this.userId}`);
-    return this.items
+  addTodo(todoDesc: string) {
+    if (todoDesc && todoDesc.trim().length) {
+      this.db.collection('items').add({ description: todoDesc, completed: false });
+    }
   }
-
-
-  createItem(item: Item[])  {
-    this.items.push(item);
-  }
-
   ngOnInit(){
 
   }

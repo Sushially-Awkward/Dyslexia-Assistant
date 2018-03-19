@@ -14,6 +14,7 @@ import {AuthService} from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { TestComponent } from './test/test.component';
+import { AngularFirestore } from 'angularfire2/firestore';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,10 +28,11 @@ import { TestComponent } from './test/test.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence(),
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [AuthService,AngularFireAuth],
+  providers: [AuthService,AngularFireAuth,AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
