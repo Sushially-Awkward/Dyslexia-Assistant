@@ -9,7 +9,9 @@ export class WritingComponent implements OnInit {
 
   constructor(
     private rf:ReadfileService
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
   }
