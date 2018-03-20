@@ -15,6 +15,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { TestComponent } from './test/test.component';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { PractiseComponent } from './practise/practise.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
     LoginComponent,
     NotfoundComponent,
     TestComponent,
+    PractiseComponent,
   ],
   imports: [
     BrowserModule,
