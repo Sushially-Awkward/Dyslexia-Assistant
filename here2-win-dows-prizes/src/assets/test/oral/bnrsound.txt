@@ -1,2 +1,20 @@
 say lettuce
+lettuce
 say cupcake without cake
+cup
+say spill
+spill
+say pen-cil
+pencil
+say lighter
+lighter
+say dice
+dice
+say most
+most
+say matchbox without match
+box
+say matchbox without box
+match
+say joyful without ful
+joy

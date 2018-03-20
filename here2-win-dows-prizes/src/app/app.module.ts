@@ -16,6 +16,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { TestComponent } from './test/test.component';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { PractiseComponent } from './practise/practise.component';
+import { OralComponent } from './test/oral/oral.component';
+import { ReadingComponent } from './test/reading/reading.component';
+import { SpellingComponent } from './test/spelling/spelling.component';
+import { BackKnowledgeComponent } from './test/back-knowledge/back-knowledge.component';
+import { WritingComponent } from './test/writing/writing.component';
+import {ReadfileService} from './readfile.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +32,11 @@ import { PractiseComponent } from './practise/practise.component';
     NotfoundComponent,
     TestComponent,
     PractiseComponent,
+    OralComponent,
+    ReadingComponent,
+    SpellingComponent,
+    BackKnowledgeComponent,
+    WritingComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +46,7 @@ import { PractiseComponent } from './practise/practise.component';
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [AuthService,AngularFireAuth,AngularFirestore],
+  providers: [AuthService,AngularFireAuth,AngularFirestore,ReadfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
