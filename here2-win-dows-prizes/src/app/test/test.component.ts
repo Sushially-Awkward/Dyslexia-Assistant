@@ -11,6 +11,9 @@ import {ReadfileService} from './../readfile.service';
 
 
 export class TestComponent implements OnInit {
+  totaltests;
+  testnumber;
+
   oralscore;
   readingscore;
   writingscore;
@@ -41,6 +44,10 @@ export class TestComponent implements OnInit {
     if (todoDesc && todoDesc.trim().length) {
       this.db.collection('items').add({ description: todoDesc, completed: false });
     }
+  }
+
+  finalresults(){
+    
   }
   ngOnInit(){
 

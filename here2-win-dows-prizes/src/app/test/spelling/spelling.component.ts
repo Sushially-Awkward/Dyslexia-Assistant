@@ -10,7 +10,9 @@ export class SpellingComponent implements OnInit {
 
   constructor(
     private rf:ReadfileService
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
   }
