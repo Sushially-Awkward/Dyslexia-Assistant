@@ -15,7 +15,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { TestComponent } from './test/test.component';
 import { AngularFirestore } from 'angularfire2/firestore';
-import {SpeechService} from './speech.service';
 @NgModule({
   declarations: [
     AppComponent,
