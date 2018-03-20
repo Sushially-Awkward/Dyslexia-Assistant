@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-practise',
@@ -7,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PractiseComponent implements OnInit {
   practise;
-  constructor() { 
+  user;
+  constructor(
+    public firebaseAuth: AngularFireAuth
+  ) { 
     this.readTextFile("assets/practisetext");
+    firebaseAuth.authState.subscribe(
+      (auth) => {
+        if (auth != null) {
+          this.user=auth.uid;
+          console.log(auth.uid);
+        }
+      }); 
   }
 
   ngOnInit() { }

@@ -13,13 +13,16 @@ export class TestComponent implements OnInit {
 
   items;
   user;
+  bnrsound;
+  fnlsound;
   constructor(
     public db: AngularFirestore,
     public firebaseAuth: AngularFireAuth
   ) {
     this.items = db.collection('items').valueChanges();
-
-
+    this.bnrsound=this.readTextFile("assets/test/oral/bnrsound.txt").split("\n");
+    this.fnlsound=this.readTextFile("assets/test/oral/fnlsound.txt").split("\n");
+    console.log(this.bnrsound);
     firebaseAuth.authState.subscribe(
       (auth) => {
         if (auth != null) {
@@ -33,8 +36,27 @@ export class TestComponent implements OnInit {
       this.db.collection('items').add({ description: todoDesc, completed: false });
     }
   }
+  readTextFile(file)
+  { let allText;
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                allText = rawFile.responseText;
+            }
+        }
+    }
+    
+    rawFile.send(null);
+    return allText;
+  }
   ngOnInit(){
 
   }
 
 }
+  
