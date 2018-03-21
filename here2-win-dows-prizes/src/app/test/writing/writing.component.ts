@@ -37,8 +37,8 @@ export class WritingComponent implements OnInit {
       this.score++;
     }
     if(this.x==4){
-      this.tc.spellingstatus=false;
-      this.tc.writingstatus=true;
+      this.tc.writingstatus=false;
+      this.tc.bkstatus=true;
     }
     this.x++;
   }

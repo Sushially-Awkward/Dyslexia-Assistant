@@ -38,8 +38,8 @@ export class BackKnowledgeComponent implements OnInit {
       this.score++;
     }
     if(this.x==4){
-      this.tc.spellingstatus=false;
-      this.tc.writingstatus=true;
+      this.tc.bkstatus=false;
+      this.tc.testover=true;
     }
     this.x++;
   }
