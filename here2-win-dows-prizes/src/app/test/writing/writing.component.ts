@@ -33,8 +33,12 @@ export class WritingComponent implements OnInit {
     window.speechSynthesis.speak(msg);
   }
   submit(){
-    if(this.answer==this.questions[this.x]){
+    if(this.questions[this.x]==this.answer){
       this.score++;
+    }
+    if(this.x==4){
+      this.tc.spellingstatus=false;
+      this.tc.writingstatus=true;
     }
     this.x++;
   }

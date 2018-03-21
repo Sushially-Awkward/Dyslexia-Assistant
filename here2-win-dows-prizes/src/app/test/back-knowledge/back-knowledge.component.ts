@@ -8,6 +8,7 @@ import { TestComponent } from './../test.component';
   styleUrls: ['./back-knowledge.component.css']
 })
 export class BackKnowledgeComponent implements OnInit {
+  
   score;
   x;
   words;
@@ -18,6 +19,7 @@ export class BackKnowledgeComponent implements OnInit {
     private tc:TestComponent
   ) { 
     this.x=0;
+    this.score=0;
     this.words=rf.readTextFile("assets/test/spelling").split("\n");
     this.questions= new Array();
     this.questions[0]=this.words[Math.floor((Math.random() * 296))];
@@ -32,6 +34,13 @@ export class BackKnowledgeComponent implements OnInit {
     window.speechSynthesis.speak(msg);
   }
   submit(){
+    if(this.questions[this.x]==this.answer){
+      this.score++;
+    }
+    if(this.x==4){
+      this.tc.spellingstatus=false;
+      this.tc.writingstatus=true;
+    }
     this.x++;
   }
   ngOnInit() {
