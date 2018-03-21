@@ -35,8 +35,10 @@ export class BackKnowledgeComponent implements OnInit {
   }
   submit(){
     if(this.questions[this.x]==this.answer){
-      this.score++;
+      this.tc.bkscore++;
+      this.tc.totalscore++;
     }
+    this.answer="";
     if(this.x==4){
       this.tc.bkstatus=false;
       this.tc.testover=true;

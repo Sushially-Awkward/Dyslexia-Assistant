@@ -34,8 +34,10 @@ export class SpellingComponent implements OnInit {
   }
   submit(){
     if(this.questions[this.x]==this.answer){
-      this.score++;
+      this.tc.spellingscore++;
+      this.tc.totalscore++;
     }
+    this.answer="";
     if(this.x==4){
       this.tc.spellingstatus=false;
       this.tc.writingstatus=true;

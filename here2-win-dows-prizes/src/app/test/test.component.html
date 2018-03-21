@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let item of items | async">
-    {{ item.test }}
+    {{item.uid}}
   </li>
 </ul>
 <button (click)="taketest()" *ngIf="!start">Start Test</button>

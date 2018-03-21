@@ -34,8 +34,10 @@ export class WritingComponent implements OnInit {
   }
   submit(){
     if(this.questions[this.x]==this.answer){
-      this.score++;
+      this.tc.writingscore++;
+      this.tc.totalscore++;
     }
+    this.answer="";
     if(this.x==4){
       this.tc.writingstatus=false;
       this.tc.bkstatus=true;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ReadfileService} from './../../readfile.service';
+import { TestComponent } from './../test.component';
 
 @Component({
   selector: 'app-over',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./over.component.css']
 })
 export class OverComponent implements OnInit {
-
-  constructor() { }
+  total;
+  constructor(
+    private tc:TestComponent
+  ) { 
+    this.total=tc.totalscore;
+    this.tc.finalresults();
+  }
 
   ngOnInit() {
   }

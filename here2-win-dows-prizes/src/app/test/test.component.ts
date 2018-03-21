@@ -20,9 +20,8 @@ export class TestComponent implements OnInit {
   spellingscore;
 
   items;
-  user;
-  bnrsound;
-  fnlsound;
+  user:string;
+  notests;
 
   testover;
   writingstatus;
@@ -31,6 +30,7 @@ export class TestComponent implements OnInit {
   start;
 
   question;
+  
   constructor(
     public db: AngularFirestore,
     public firebaseAuth: AngularFireAuth
@@ -44,8 +44,15 @@ export class TestComponent implements OnInit {
     this.spellingscore=0;
     this.bkscore=0;
     this.start=false;
-
-    this.items = db.collection('items').valueChanges();
+    this.notests=0;
+    this.items = db.collection('test').valueChanges();
+    this.user="";
+    for(let item of this.items){
+      this.notests=Math.max(this.notests,item.testno);
+      console.log(item.testno);
+    }
+    console.log(this.notests);
+   
     firebaseAuth.authState.subscribe(
       (auth) => {
         if (auth != null) {
@@ -54,14 +61,22 @@ export class TestComponent implements OnInit {
         }
       }); 
   }
-  addTodo(todoDesc: string) {
-    if (todoDesc && todoDesc.trim().length) {
-      this.db.collection('items').add({ description: todoDesc, completed: false });
-    }
+  addTodo() {
+      let added=new Object;
+      console.log(this.user);
+      added={ 
+        uid:this.user,
+        testno:this.notests+1,
+        bknow:this.bkscore,
+        spelling:this.spellingscore,
+        writing:this.writingscore,
+        total: this.totalscore
+      };
+      this.db.collection('test').add(added);
   }
 
   finalresults(){
-    
+    this.addTodo();
   }
   taketest(){
     this.start=true;
