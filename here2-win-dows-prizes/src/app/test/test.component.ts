@@ -24,12 +24,16 @@ export class TestComponent implements OnInit {
   user;
   bnrsound;
   fnlsound;
+
+
+  question;
   constructor(
     public db: AngularFirestore,
     public firebaseAuth: AngularFireAuth
   ) {
+    this.question="question";
     let msg = new SpeechSynthesisUtterance('Hello World');
-    window.speechSynthesis.speak(msg);
+    //window.speechSynthesis.speak(msg);
 
     this.items = db.collection('items').valueChanges();
     firebaseAuth.authState.subscribe(

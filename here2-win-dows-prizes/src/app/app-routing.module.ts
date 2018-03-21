@@ -5,7 +5,6 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestComponent } from './test/test.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { PractiseComponent } from './practise/practise.component';
 const routes: Routes = [
   {
     path: '',
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path:'test',
     component: TestComponent
-  },
-  {
-    path:'practise',
-    component: PractiseComponent
   },
   {
     path:'dashboard',

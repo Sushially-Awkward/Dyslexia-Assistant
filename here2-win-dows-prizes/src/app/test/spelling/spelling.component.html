@@ -1,3 +1,22 @@
-<p>
-  spelling works!
-</p>
+<div class="grid">
+    <div id="quiz">
+      <h1>Spelling</h1>
+      <hr style="margin-bottom: 20px">
+      <p id="question">
+        Type the following word into the given text area
+        <br>
+        Click the button to hear the word
+        <button id="word" (click)="speak(questions[x]);">
+            Word
+        </button>
+      </p>
+      <input type="text" [(ngModel)]="answer" placeholder="answer">
+      <div class="buttons">
+          <button id="btn0" (click)="submit()" align="right">Submit</button>
+      </div>
+      <hr style="margin-top: 50px">
+      <footer>
+          <p id="progress">Question {{x+1}} of 15</p>
+      </footer>
+    </div>
+</div>

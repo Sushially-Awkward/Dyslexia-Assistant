@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ReadfileService} from './../../readfile.service';
+import { TestComponent } from './../test.component';
 @Component({
   selector: 'app-writing',
   templateUrl: './writing.component.html',
