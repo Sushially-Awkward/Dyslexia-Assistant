@@ -20,6 +20,7 @@ import { BackKnowledgeComponent } from './test/back-knowledge/back-knowledge.com
 import { WritingComponent } from './test/writing/writing.component';
 import {ReadfileService} from './readfile.service';
 import {TestService} from './test/test.service';
+import { OverComponent } from './test/over/over.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {TestService} from './test/test.service';
     SpellingComponent,
     BackKnowledgeComponent,
     WritingComponent,
+    OverComponent,
   ],
   imports: [
     BrowserModule,

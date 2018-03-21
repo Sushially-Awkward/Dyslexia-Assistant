@@ -3,7 +3,8 @@
     {{ item.test }}
   </li>
 </ul>
-
-<app-writing *ngIf="false"></app-writing>
-<app-spelling *ngIf="true"></app-spelling>
-<app-back-knowledge *ngIf="false"></app-back-knowledge>
+<button (click)="taketest()" *ngIf="!start">Start Test</button>
+<app-writing *ngIf="writingstatus"></app-writing>
+<app-spelling *ngIf="spellingstatus"></app-spelling>
+<app-back-knowledge *ngIf="bkstatus"></app-back-knowledge>
+<app-over *ngIf="testover"></app-over>

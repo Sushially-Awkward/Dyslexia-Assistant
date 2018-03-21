@@ -14,10 +14,9 @@ export class TestComponent implements OnInit {
   totaltests;
   testnumber;
 
-  oralscore;
-  readingscore;
+  totalscore;
   writingscore;
-  bknowscore;
+  bkscore;
   spellingscore;
 
   items;
@@ -25,15 +24,26 @@ export class TestComponent implements OnInit {
   bnrsound;
   fnlsound;
 
+  testover;
+  writingstatus;
+  spellingstatus;
+  bkstatus;
+  start;
 
   question;
   constructor(
     public db: AngularFirestore,
     public firebaseAuth: AngularFireAuth
   ) {
-    this.question="question";
-    let msg = new SpeechSynthesisUtterance('Hello World');
-    //window.speechSynthesis.speak(msg);
+    this.testover=false;
+    this.writingstatus=false;
+    this.spellingstatus=false;
+    this.bkstatus=false;
+    this.totalscore=0;
+    this.writingscore=0;
+    this.spellingscore=0;
+    this.bkscore=0;
+    this.start=false;
 
     this.items = db.collection('items').valueChanges();
     firebaseAuth.authState.subscribe(
@@ -53,9 +63,12 @@ export class TestComponent implements OnInit {
   finalresults(){
     
   }
+  taketest(){
+    this.start=true;
+    this.spellingstatus=true;
+  }
   ngOnInit(){
 
   }
 
 }
-  

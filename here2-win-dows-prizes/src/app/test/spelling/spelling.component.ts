@@ -14,9 +14,11 @@ export class SpellingComponent implements OnInit {
   answer;
   questions;
   constructor(
-    private rf:ReadfileService
+    private rf:ReadfileService,
+    private tc:TestComponent
   ) { 
     this.x=0;
+    this.score=0;
     this.words=rf.readTextFile("assets/test/spelling").split("\n");
     this.questions= new Array();
     this.questions[0]=this.words[Math.floor((Math.random() * 296))];
@@ -31,6 +33,13 @@ export class SpellingComponent implements OnInit {
     window.speechSynthesis.speak(msg);
   }
   submit(){
+    if(this.questions[this.x]==this.answer){
+      this.score++;
+    }
+    if(this.x==4){
+      this.tc.spellingstatus=false;
+      this.tc.writingstatus=true;
+    }
     this.x++;
   }
   ngOnInit() {
