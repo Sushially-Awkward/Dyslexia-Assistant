@@ -21,6 +21,8 @@ import { WritingComponent } from './test/writing/writing.component';
 import {ReadfileService} from './readfile.service';
 import {TestService} from './test/test.service';
 import { OverComponent } from './test/over/over.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { ReadComponent } from './read/read.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { OverComponent } from './test/over/over.component';
     BackKnowledgeComponent,
     WritingComponent,
     OverComponent,
+    StatisticsComponent,
+    ReadComponent,
   ],
   imports: [
     BrowserModule,

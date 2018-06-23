@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   ) {
    }
   
+  takeTest(){
+    this.router.navigate(['test']);
+  }
   ngOnInit() {
   }
 
